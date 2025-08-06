@@ -14,12 +14,12 @@
 #define LORA_RESET 1
 
 #define SX126X_CS LORA_CS
-#define SX126X_DIO0 3
-#define SX126X_DIO1 5 // NEEDS BODGE required as an IRQ pin
+
+#define SX126X_DIO1 5 // radio pin 6 - CAD (UNCONNECTED)
 //#define SX126X_DIO2 20
-#define SX126X_BUSY 11 // DIO4 - NEEDS BODGE
+#define SX126X_BUSY 11 // radio pin10 - busy (UNCONNECTED)
 #define SX126X_RESET LORA_RESET
 //#define SX126X_RXEN 15
-//#define SX126X_TXEN 3
+#define SX126X_TXEN 3
 //#define SX126X_DIO2_AS_RF_SWITCH
 #define SX126X_DIO3_TCXO_VOLTAGE 1.8
