@@ -1,14 +1,15 @@
 #define I2C_SDA 8 // I2C pins for this board
 #define I2C_SCL 9
 
-#define LED_PIN 7      // If defined we will blink this LED
+// blink the keyboard backight
+#define LED_PIN 10    // If defined we will blink this LED
 #define LED_STATE_ON 0 // State when LED is lit
 
 // RA-01SH/HT-RA62 LORA module
 #define USE_SX1262
 #define LORA_SCK 6
 #define LORA_MISO 2
-#define LORA_MOSI 0
+#define LORA_MOSI 7
 #define LORA_CS 4
 #define LORA_RESET 1
 
