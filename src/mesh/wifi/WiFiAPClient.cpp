@@ -1,4 +1,5 @@
 #include "configuration.h"
+
 #if HAS_WIFI
 #include "NodeDB.h"
 #include "RTC.h"
@@ -438,3 +439,5 @@ uint8_t getWifiDisconnectReason()
     return wifiDisconnectReason;
 }
 #endif
+
+

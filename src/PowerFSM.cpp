@@ -19,9 +19,11 @@
 #include "sleep.h"
 #include "target_specific.h"
 
+
 #if HAS_WIFI && !defined(ARCH_PORTDUINO)
 #include "mesh/wifi/WiFiAPClient.h"
 #endif
+
 
 #ifndef SLEEP_TIME
 #define SLEEP_TIME 30
@@ -383,7 +385,11 @@ void PowerFSM_setup()
     // See: https://github.com/meshtastic/firmware/issues/1071
     // Don't add power saving transitions if we are a power saving tracker or sensor or have Wifi enabled. Sleep will be initiated
     // through the modules
+    #if (HAS_WIFI == 0)
+    if ((isRouter || config.power.is_power_saving) && !isTrackerOrSensor) {
+    #else
     if ((isRouter || config.power.is_power_saving) && !isWifiAvailable() && !isTrackerOrSensor) {
+    #endif
         powerFSM.add_timed_transition(&stateNB, &stateLS,
                                       Default::getConfiguredOrDefaultMs(config.power.min_wake_secs, default_min_wake_secs), NULL,
                                       "Min wake timeout");
